@@ -1,0 +1,24 @@
+<button (click)="newAlbumForm()">Nieuw Album</button>
+<h1>Albums</h1>
+<br>
+(Use "%" as wildcard)
+<br>    
+<input type="text" [(ngModel)]='naam' placeholder="Search album">
+<button (click)="findByNaam()">Search</button>
+<br>
+<br>
+<table border="1">
+    <tr >
+        <th>Ingredient</th>
+        <th>Stappen</th>
+        <th>Jaar</th>
+    </tr>
+    <tr *ngFor="let album of albums">
+        <td><a [routerLink]="['album', album.id]">{{album.naam}}</a></td>
+        <td>{{album.artiest.naam}}</td>
+        <td>{{album.jaar}}</td>
+    </tr>
+</table>
+<br>
+
+<router-outlet></router-outlet>
