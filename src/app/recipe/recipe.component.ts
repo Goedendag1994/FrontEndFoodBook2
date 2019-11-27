@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { IngredientComponent } from 'src/domain/ingredient/ingredient.component';
 import { ActivatedRoute } from '@angular/router'
 import { Recipe } from 'src/domain/recipe';
-import { RecipeService } from '../services/recipe.service';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-recipe',
@@ -32,6 +32,8 @@ recipe: Recipe;
 constructor(private activatedRoute: ActivatedRoute, private recipeService: RecipeService) { }
 
 ngOnInit() {
+
+
   this.activatedRoute.params.subscribe(
     params => { this.recipeService.findRecipeById(params['recipeId']).subscribe(
       (recipe:Recipe)=> {this.recipe=recipe},
@@ -42,7 +44,7 @@ ngOnInit() {
     , (fout: HttpErrorResponse)=>alert("Er is een fout opgetreden: "+fout.status + " "+ fout.error+"\n"+"\nMessage:\n"+fout.message)
     , () => { }
   )
-}
+
+  }
 
 }
-

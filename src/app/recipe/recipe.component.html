@@ -1,9 +1,9 @@
-<button (click)="newAlbumForm()">Nieuw Album</button>
-<h1>Albums</h1>
+<button (click)="newAlbumForm()">New Recipe</button>
+<h1>Recipe</h1>
 <br>
 (Use "%" as wildcard)
 <br>    
-<input type="text" [(ngModel)]='naam' placeholder="Search album">
+<input type="text" [(ngModel)]='naam'>
 <button (click)="findByNaam()">Search</button>
 <br>
 <br>
@@ -11,12 +11,12 @@
     <tr >
         <th>Ingredient</th>
         <th>Stappen</th>
-        <th>Jaar</th>
+        
     </tr>
     <tr *ngFor="let album of albums">
-        <td><a [routerLink]="['album', album.id]">{{album.naam}}</a></td>
-        <td>{{album.artiest.naam}}</td>
-        <td>{{album.jaar}}</td>
+        <td><a [routerLink]="" (click)="updateRecipe(recipe)">{{recipe.naam}}</a></td>
+        <td>{{recipe.ingredient.naam}}</td>
+        <td>{{ingredient}}</td>
     </tr>
 </table>
 <br>
